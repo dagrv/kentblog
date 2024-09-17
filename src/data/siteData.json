@@ -1,0 +1,8 @@
+{
+    "title": "Kenton IT Blog",
+    "description": "A minimal IT Blog",
+    "image": {
+        "src": "/image/post-1.jpg",
+        "alt": "Kenton IT Blog"
+    }
+}

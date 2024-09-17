@@ -1,0 +1,18 @@
+---
+import Seo from "../components/Seo.astro";
+const { title, description, url = Astro.url, image, frontmatter, robots, } = Astro.props;
+---
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="generator" content={Astro.generator} />
+  
+  <Seo {title} {description} url={Astro.url} {image} {frontmatter} {robots} />
+
+  <title>{title}</title>
+
+  <meta name="description" content={description} />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+</head>

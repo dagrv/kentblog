@@ -1,0 +1,25 @@
+---
+
+---
+
+<footer>
+    <div>
+      <small>
+        Copyright &copy; <span id="copyright"></span> | All rights reserved | Made in Caen, FR 🇫🇷
+      </small>
+
+      <small>
+        <a href="/rss.xml" style="color: darkorange; font-weight: 500;">
+          Subscribe to RSS 
+          
+          <rux-icon size="normal" icon="rss-feed"></rux-icon>
+        </a>
+      </small>
+    </div>
+</footer>
+  
+<script>
+    document.querySelector("#copyright").textContent = new Date()
+      .getFullYear()
+      .toString();
+</script>

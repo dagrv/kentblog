@@ -1,0 +1,33 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import PostCard from "../components/PostCard.astro";
+import { formatBlogPosts } from '../js/utils';
+import Link from "../components/Link.astro";
+
+const allPosts = await Astro.glob("./blog/**/*.md");
+const formattedPosts = formatBlogPosts(allPosts, {
+	limit: 3
+});
+---
+
+<MainLayout title="Home - Kenton">
+	<section class="container about" aria-label="About Me">
+		<img src="/images/me.jpg" alt="Me" width="200" height="330" />
+		<div class="content">
+			<h1 class="h1">About me</h1>
+			<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci eos suscipit tempora ipsum maiores modi, nemo nesciunt ipsam. Repellendus ex eligendi ad ut facere in quas ratione, ipsam minus sapiente reiciendis officiis doloribus vel. Nihil aliquid eveniet, illo, voluptatem fugit vitae corrupti quia quisquam id cum, labore expedita esse quas.</p>
+			<Link isFilled={false} borderVisible={true} href="/about/" style="secondary" text="Say Hello 💌"/>
+		</div>
+	</section>
+	
+	<section class="container" aria-label="New Posts">
+		<h2 class="h2">New Posts</h2>
+		<!-- <div class="post-container">  To disable for grid format -->
+			{
+				formattedPosts.map((post) => (
+					<PostCard frontmatter={post.frontmatter} url={post.url} tagType="h3" />
+				))
+			}
+		<!-- </div> -->
+	</section>
+</MainLayout>
